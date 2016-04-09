@@ -1,0 +1,80 @@
+\section{Ограниченные линейные операторы}
+
+Пусть $X$, $Y$ --- банаховы,
+$A : X \mapsto Y$ --- линейный оператор.
+
+\begin{thm}
+\label{th:l-b-def-equiv}
+Следующие три утверждения эквивалентны:
+
+\begin{equation} \label{eq:lb-1}
+  A \text{ непрерывен в каждой точке } x\in X \end{equation}
+\begin{equation} \label{eq:lb-2}
+  A \text{ непрерывен в нуле } 0\in X \end{equation}
+\begin{equation} \label{eq:lb-3}
+  A \text{ ограничен в единичном шаре } \{x\in X ; \|x\|\leq 1\end{equation}
+\end{thm}
+\begin{proof}
+
+1. Очевидно, \eqref{eq:lb-1} $\implies$ \eqref{eq:lb-2} \\
+
+2. \eqref{eq:lb-2} $\implies$ \eqref{eq:lb-3} 
+
+\begin{align*}
+& A \text{ непрерывен в } 0\in X \\
+& A^{-1}\{y\in Y: \|y\|\leq 1\} = V\text{ есть окрестность нуля в } X \\
+& \exists r>0 \quad B(0, r)\subset V \\
+& \forall x\in X \quad (\|x\| \leq r) \implies (\|A x\|_Y \leq 1)
+\end{align*}
+
+Пусть $\|x\|\leq 1$, тогда $\|rx\| = r\|x\| \leq r$,
+следовательно ${\|A rx\| = r \|A x\| \leq 1}$,
+следовательно ${\|A x\| \leq \frac{1}{r}}$ для всех $x\in X$, для которых $\|x\|\leq 1$
+
+Это и означает, что $A$ ограничен в единичном шаре.
+
+3. \eqref{eq:lb-3} $\implies$ \eqref{eq:lb-1}:
+
+Пусть
+ $$\exists M>0 \quad \forall x\in X \quad \|x\|\leq 1 \implies \|A x\| \leq M$$
+
+Если $x=0$, то $$\|A x\| = 0 \leq M\|x\| = 0$$
+
+Если $x\neq 0$, то
+$$\|A x\| = \|A \frac{\|x\|x}{\|x\|}\| = \|x\| \|A \frac{x}{\|x\|}\| \leq M \|x\|$$
+поскольку  $\|\frac{x}{\|x\|}\|\leq 1$
+
+То есть $\forall x\in X \quad \|A x\| \leq M \|x\|$.
+
+Покажем теперь, что $\forall x_0\in X$ $A$ непрерывен в $x_0$:
+\begin{align*}
+& \forall x\in X \text{ из } (\|x - x_0\| \leq \frac{\epsilon}{M}) \text{ следует } \\
+& \|A x - A x_0\| = \|A (x - x_0)\| \leq M \frac{\epsilon}{M} = \epsilon
+\end{align*}
+
+\end{proof}
+
+Эта теорема даёт основание для следующего определения:
+
+\begin{dfn}{Ограниченный линейный оператор}
+  Линейный оператор $A$
+  называется ограниченным (или непрерывным) линейным оператором,
+  если конечна величина
+  $$\|A\| = \sup_{\|x\|\leq 1} A x$$
+
+  Эта величина является нормой:
+
+  \begin{align*}
+    & \|0\| = 0 \\
+    & \|A\| = 0 \implies 0\leq sup_{\|x\|\leq 1} A x = 0 \implies A = 0 \\
+    & \|A + B\| = \sup_{\|x\|\leq 1} (A + B) x \leq \sup_{\|x\|\leq 1} A x + \sup_{\|x\|\leq 1} B x = \|A\| + \|B\| \\
+    & \|\alpha A\| = \sup_{\|x\|\leq 1} \alpha A x = \alpha \sup_{\|x\|\leq 1} A x = \alpha \|A x\|
+  \end{align*}
+\end{dfn}
+
+\begin{thm}{Пространство ограниченных линейных операторов}
+  Ограниченные линейные операторы, с определённой выше нормой,
+  образуют банахово пространство $\Hom(X,Y)$
+\end{thm}
+\begin{proof}
+\end{proof}
