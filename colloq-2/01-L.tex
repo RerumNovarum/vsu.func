@@ -90,6 +90,27 @@ $$\|A x\|_Y = \|A \frac{\|x\|x}{\|x\|}\|_Y = \|x\| \|A \frac{x}{\|x\|}\|_Y \leq 
 Это пространство нормированное с нормой
 $$\|A\| = \sup_{\|x\|\leq 1} \|A x\|$$
 
+\begin{thm}{Эквивалентность определений нормы}
+  \begin{align*}
+    \|A\| &= \sup_{\|x\|\leq 1} \|A x\| = \\
+          &= \sup_{\|x\|=1} \|A x\| = \\
+          &= \sup_{x\neq 0} \frac{\|A x\|}{\|x\|} = \\
+          &= \inf\left\{c>0; \|A x\| \leq c\|x\| \forall x\in X \right\}
+  \end{align*}
+\end{thm}
+\begin{proof}
+  Дано: $\|A\| = \sup_{\|x\|\leq 1} \|A x\|$.
+  Тогда
+  \begin{align*}
+    &\text{При } x=0 \text{ утверждение тривиально }\\
+    &\text{Пусть } x\neq 0\\
+    &\sup_{\|x\|=1} \|A x\| \leq \sup_{\|x\|\leq 1} \|A x\| \\
+    &\sup_{\|x\|\leq 1} \|A x\| = \sup_{\|x\|\leq 1} \|x\| \|A \frac{x}{\|x\|}\| \leq\\
+    &\qquad \leq \sup_{\|x\|\leq 1} \|A \frac{x}{\|x\|}\| \leq \sup_{\|x\|=1} \|A x\| \\
+    &\sup_{\|x\|=1} \|A x\| = \sup_{x\neq 0} \frac{\|A x\|}{\|x\|}
+  \end{align*}
+\end{proof}
+
 \begin{thm}{Банахово пространство линейных непрерывных операторов}
   Если $Y$ --- банахово, то и $\Hom(X, Y)$ --- банахово пространство
 \end{thm}
