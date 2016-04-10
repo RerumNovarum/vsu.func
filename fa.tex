@@ -1,4 +1,8 @@
-\documentclass{report}
+\documentclass[a4paper,fleq]{report}
+
+\usepackage[cm]{fullpage}
+
+\usepackage{hanging}
 
 \usepackage{fontspec}
 \setmainfont{CMU Serif}
@@ -12,7 +16,13 @@
 \theoremstyle{definition}
 \newtheorem{dfn}{Def.}
 
+\usepackage{amsfonts}
 \providecommand{\Hom}{\mathrm{Hom}}
+\providecommand{\KK}{\mathbb{K}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\ZZ}{\mathbb{Z}}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\CC}{\mathbb{C}}
 
 \begin{document}
   \input{colloq-2/01-L}

@@ -1,18 +1,28 @@
 \section{Ограниченные линейные операторы}
 
-Пусть $X$, $Y$ --- банаховы,
-$A : X \mapsto Y$ --- линейный оператор.
+Пусть $X$, $Y$ --- банаховы.
+
+\begin{dfn}{Линейный оператор}
+  Отображение $A : X \mapsto Y$ называется линейным оператором, если
+  \begin{align*}
+    & A (x_1 + x_2) = A x_1 + A x_2 \\
+    & A \alpha x = \alpha A x
+  \end{align*}
+\end{dfn}
 
 \begin{thm}
 \label{th:l-b-def-equiv}
-Следующие три утверждения эквивалентны:
+Пусть $X$, $Y$ --- банаховы пространства над одним полем $\KK$,
+$A : X \mapsto Y$ --- линейный оператор.
+
+Тогда следующие три утверждения эквивалентны:
 
 \begin{equation} \label{eq:lb-1}
   A \text{ непрерывен в каждой точке } x\in X \end{equation}
 \begin{equation} \label{eq:lb-2}
   A \text{ непрерывен в нуле } 0\in X \end{equation}
 \begin{equation} \label{eq:lb-3}
-  A \text{ ограничен в единичном шаре } \{x\in X ; \|x\|\leq 1\end{equation}
+  A \text{ ограничен в единичном шаре } \{x\in X ; \|x\|\leq 1\} \end{equation}
 \end{thm}
 \begin{proof}
 
@@ -22,34 +32,36 @@ $A : X \mapsto Y$ --- линейный оператор.
 
 \begin{align*}
 & A \text{ непрерывен в } 0\in X \\
-& A^{-1}\{y\in Y: \|y\|\leq 1\} = V\text{ есть окрестность нуля в } X \\
+& A^{-1}\{y\in Y: \|y\|_Y \leq 1\} = V\text{ есть окрестность нуля в } X \\
 & \exists r>0 \quad B(0, r)\subset V \\
 & \forall x\in X \quad (\|x\| \leq r) \implies (\|A x\|_Y \leq 1)
 \end{align*}
 
-Пусть $\|x\|\leq 1$, тогда $\|rx\| = r\|x\| \leq r$,
-следовательно ${\|A rx\| = r \|A x\| \leq 1}$,
-следовательно ${\|A x\| \leq \frac{1}{r}}$ для всех $x\in X$, для которых $\|x\|\leq 1$
+Пусть $\|x\|\leq 1$, тогда $\|rx\| = r\|x\| \leq r$,\\
+следовательно ${\|A rx\|_Y = r \|A x\|_Y \leq 1}$,\\
+следовательно ${\|A x\|_Y \leq \frac{1}{r}}$
+для всех $x\in X$, для которых $\|x\|\leq 1$
 
 Это и означает, что $A$ ограничен в единичном шаре.
 
 3. \eqref{eq:lb-3} $\implies$ \eqref{eq:lb-1}:
 
 Пусть
- $$\exists M>0 \quad \forall x\in X \quad \|x\|\leq 1 \implies \|A x\| \leq M$$
+ $$\exists M>0 \quad \forall x\in X \quad \|x\|\leq 1 \implies \|A x\|_Y \leq M$$
 
-Если $x=0$, то $$\|A x\| = 0 \leq M\|x\| = 0$$
+Если $x=0$, то $$\|A x\|_Y = 0 \leq M\|x\| = 0$$
 
 Если $x\neq 0$, то
-$$\|A x\| = \|A \frac{\|x\|x}{\|x\|}\| = \|x\| \|A \frac{x}{\|x\|}\| \leq M \|x\|$$
+$$\|A x\|_Y = \|A \frac{\|x\|x}{\|x\|}\|_Y = \|x\| \|A \frac{x}{\|x\|}\|_Y \leq M \|x\|$$
 поскольку  $\|\frac{x}{\|x\|}\|\leq 1$
 
-То есть $\forall x\in X \quad \|A x\| \leq M \|x\|$.
+То есть $\forall x\in X \quad \|A x\|_Y \leq M \|x\|$.
 
 Покажем теперь, что $\forall x_0\in X$ $A$ непрерывен в $x_0$:
 \begin{align*}
-& \forall x\in X \text{ из } (\|x - x_0\| \leq \frac{\epsilon}{M}) \text{ следует } \\
-& \|A x - A x_0\| = \|A (x - x_0)\| \leq M \frac{\epsilon}{M} = \epsilon
+& \forall x\in X\\
+& \text{из } (\|x - x_0\| \leq \frac{\varepsilon}{M}) \text{ следует } \\
+& \|A x - A x_0\|_Y = \|A (x - x_0)\|_Y \leq M \frac{\varepsilon}{M} = \varepsilon
 \end{align*}
 
 \end{proof}
@@ -68,13 +80,66 @@ $$\|A x\| = \|A \frac{\|x\|x}{\|x\|}\| = \|x\| \|A \frac{x}{\|x\|}\| \leq M \|x\
     & \|0\| = 0 \\
     & \|A\| = 0 \implies 0\leq sup_{\|x\|\leq 1} A x = 0 \implies A = 0 \\
     & \|A + B\| = \sup_{\|x\|\leq 1} (A + B) x \leq \sup_{\|x\|\leq 1} A x + \sup_{\|x\|\leq 1} B x = \|A\| + \|B\| \\
-    & \|\alpha A\| = \sup_{\|x\|\leq 1} \alpha A x = \alpha \sup_{\|x\|\leq 1} A x = \alpha \|A x\|
+    & \|\alpha A\| = \sup_{\|x\|\leq 1} \|\alpha A x\| = \left|\alpha\right| \sup_{\|x\|\leq 1} \|A x\| = \left|\alpha\right| \|A\|
   \end{align*}
 \end{dfn}
 
-\begin{thm}{Пространство ограниченных линейных операторов}
-  Ограниченные линейные операторы, с определённой выше нормой,
-  образуют банахово пространство $\Hom(X,Y)$
+Пространство всех линейных ограниченных (i.e. непрерывных отображений) из $X$ в $Y$
+образует векторное подпространство $\Hom(X, Y)$
+пространства всех линейный отображений из $X$ в $Y$.
+Это пространство нормированное с нормой
+$$\|A\| = \sup_{\|x\|\leq 1} \|A x\|$$
+
+\begin{thm}{Банахово пространство линейных непрерывных операторов}
+  Если $Y$ --- банахово, то и $\Hom(X, Y)$ --- банахово пространство
 \end{thm}
 \begin{proof}
+  Как установлено выше, $\|.\|_{\Hom(X,Y)}$ действительно является нормой.
+  Установим полноту.
+  \par\hangpara{1em}{1}
+  Пусть $(A_n)$ --- фундаментальная последовательность в $\Hom(X,Y)$:
+  \begin{align*}
+    \forall\varepsilon>0 \exists N \forall n\\
+    n>N \implies \|A_n - A_m\| \leq \varepsilon
+  \end{align*}
+  Наряду с ней рассмотрим последовательность $(A_n x)$ в $Y$.
+  Она также фундаментальна:
+  \begin{equation*}
+    \|A_n x - A_m x\|_Y = \|(A_n - A_m) x\|_Y \leq \|A_n - A_M\|_Y\|x\|_X < \varepsilon\|x\|
+  \end{equation*}
+  Но $Y$ --- банахово, и любая последовательность Коши в нём сходится
+  \begin{equation*}
+    \forall x\in X \qquad \lim A_n x = y\in Y
+  \end{equation*}
+  Введём отображение
+  $A:X\mapsto Y:x\mapsto\lim_{n\to\infty} A_n x$.
+
+  \par\hangpara{1em}{1}
+  Покажем, что $A\in\Hom(X<Y)$ и $A_n\to A$ по норме:
+  \begin{align*}
+    &A (x_1 + x_2) = \lim A_n (x_1 + x_2) = \lim (A_n x_1 + A_n x_2) = \\
+    &\text{но } A_n x \text{ cходится } \forall x\in X \text{, поэтому } \\
+    &= \lim A_n x_1 + \lim A_n x_2 = A x_1 + A x_2 \\
+    &A (\alpha x) = \lim A_n \alpha x = \alpha \lim A_n x = \alpha A x
+  \end{align*}
+  То есть, $A$ линеен.
+
+  Далее
+  \begin{align*}
+    & \forall x\in X &\\
+    & \forall \varepsilon>0 \exists N \forall n>N \\
+    & \|(A - A_n) x\| = \|A x - A_n x\| \leq \varepsilon \\
+    & \|A - A_n\| = \sup_{\|x\|\leq 1} \|(A - A_n)x\| \leq \varepsilon \\
+  \end{align*}
+  То есть, $A_n\to A$ по норме.
+
+  Наконец
+  \begin{equation*}
+    \exists C>0 \\
+    \forall x\in X \qquad \|x\|\leq 1 \implies \\
+    \|A x\| \leq
+     \underbrace{\|A x - A_n x\|}_{\leq \varepsilon}
+     + \underbrace{\|A_n x\|}_{\leq C} \leq \varepsilon+C
+  \end{equation*}
+  То есть, $A$ ограниченный
 \end{proof}
