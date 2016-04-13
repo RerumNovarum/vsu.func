@@ -106,3 +106,107 @@
   Значит,
   $$\sup_{\alpha\in J} \|A_\alpha\| \leq \frac{2m}{r}$$
 \end{proof}
+
+\subsection{Теорема Хана-Банаха}
+
+\begin{dfn}{Частичный порядок}\\*
+  Говорят, что множество $X$
+  частично-упорядоченно,
+  если на нём задано бинарное отношение
+  $\prec\subset X\times X$, такое что:
+  \begin{align*}
+    & \forall x\in X & x\prec x \\
+    & \forall x,y\in X & (x\prec y)\land (y\prec x) \implies x=y\\
+    & \forall x,y,z\in X & (x\prec y)\land (y\prec z) \implies x\prec z
+  \end{align*}
+\end{dfn}
+
+\begin{dfn}{Максимальный элемент}\\*
+  Элемент $x_0$ частично-упорядоченного множества $X$
+  называется максимальным элементом, или мажорантой, если
+  $$x_0\prec x \implies x_0=x$$
+\end{dfn}
+
+\begin{dfn}{Линейный порядок}\\*
+  Множество $X$ называется линейно-упорядоченным,
+  или \textbf{цепью}, если
+  \begin{align*}
+    & \text{Оно частично-упорядоченно} \\
+    & \forall x_1,x_2\in X & x_1\prec x_2 \lor x_2\prec x_1
+  \end{align*}
+  То есть, любые два элемента сравнимы
+\end{dfn}
+
+\begin{lemma}{Цорна}\\*
+  Если частично-упордоченное множество $X$
+  таково, что любая цепь в нём имеет верхнюю грань
+
+  То $X$ имеет мажоранту
+\end{lemma}
+
+\begin{dfn}{Полунорма}\\*
+  Отображение $p : X\mapsto\RR_+$ называется полунормой, если
+  \begin{align*}
+    & p(0) = 0 \\
+    & p(\alpha x) = \left|\alpha\right| p(x) \forall x\in X\\
+    & p(x+y) \leq p(x) + p(y) \forall x,y\in X
+  \end{align*}
+\end{dfn}
+
+\begin{dfn}{Продолжение линейного функционала}\\*
+  Пусть $M\subset X$ --- линейное подпространство пространства $X$.
+  $f_0: M\mapsto \KK$ --- линейный функционал.
+
+  Линейный функционал $f: X\mapsto\KK$
+  называется продолжением линейного функционала $f_0$
+  на линейное пространство $X$, если
+  $$\forall x\in M \qquad f(x) = f(x_0)$$
+\end{dfn}
+
+\begin{thm}{Хана-Банаха, о продолжении линейного функционала с сохранением нормы}\\*
+  Пусть
+  \begin{align*}
+    & X \text{ --- линейное пространство над полем } \KK \\
+    & M\subset X \text{ --- линейное подпространство } \\
+    & p: M\mapsto\RR_+ \text{ --- полунорма } \\
+    & f_0: M\mapsto\KK \text{ --- линейный функционал, такой что}\\
+    & \forall x\in M \left|f_0(x)\right| \leq p(x)
+  \end{align*}
+  Тогда
+  \begin{align*}
+    & \exists f: X\mapsto\KK \text{ --- линейный функционал, продолжение } f_0\\
+    \left\{\begin{aligned}
+      & \forall x\in M & f(x) = f_0(x) \\
+      & \forall x\in X & \left|f(x)\right| \leq p(x)
+    \end{aligned}\right.
+  \end{align*}
+  То есть, существует продолжение $f_0$
+  на всё пространство $X$ с сохранением нормы
+\end{thm}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}{Существование ограниченных линейных функционалов}\\*
+  Пусть
+  \begin{align*}
+    & X \text{ --- непустое линейное нормированное пространство} \\
+    & p: x\mapsto \|x\|
+  \end{align*}
+  Тогда
+  \begin{align*}
+    & \text{выберем } 0\neq x_0\in X \\
+    & M = \{\alpha x_0; \alpha\in\KK\} \\
+    & \exists f_0 : M\mapsto\KK \\
+    & f_0(x_0) = \|x_0\| \\
+    & f_0(\alpha x_0) = \alpha \|x_0\| \\
+    & |f_0(\alpha x_0)| = p(\alpha x_0) = |\alpha| \|x_0\| \\
+    & \text{То есть, } f_0 \text{ удовлетворяет условиям теоремы } \\
+    & \text{Значит, } \exists f\in\Hom(X,\KK) \\
+    &
+    \left\{\begin{aligned}
+      & \forall x\in M & f(x) = f_0(x) \\
+      & \forall x\in X & \|f(x)\| \leq p(x) \\
+      & \|f\| = 1
+    \end{aligned}\right.
+  \end{align*}
+\end{corollary}
